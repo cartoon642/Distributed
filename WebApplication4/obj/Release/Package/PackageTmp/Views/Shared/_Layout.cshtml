@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .sidebar {
+            height: 100%;
+            width: 180px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: cornflowerblue;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+      
+        .nav li{
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #000000;
+           
+            display: block;
+        }
+
+        .nav ul li:hover {
+            color: #f1f1f1;
+            cursor:pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar-collapse sidebar">
+        <ul class="nav"> 
+            <li>FACEBOOK</li>
+            <li><input id="getFBPosts" class="btn" type="button" value="Page Posts" onclick="getFbPosts();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="Page Likes" onclick="getFbLikes();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="Page Photos" onclick="getFbPhoto();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="Post a comment" onclick="getFbPosts1();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="Post to wall" onclick="writePost();" /></li>
+            <li>TWITTER</li>
+            <li><input id="getFBPosts" class="btn" type="button" value="see Timeline" onclick="getTwitterStatus();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="Post to twitter" onclick="PostTwitter();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="Search Twitter" onclick="searchBar();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="See Friends" onclick="getTwitterFriends();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="See Favourites" onclick="getTwitterFav();" /></li>
+            <li><input id="getFBPosts" class="btn" type="button" value="See Followers " onclick="getFollower();" /></li>
+            <hr />
+            <li id="Login">@Html.ActionLink("Log in", "Login", "Home", new { area = "" }, null)</li>
+            <li id="register">@Html.ActionLink("Register", "Register", "Home", new { area = "" }, null)</li>
+        </ul>
+    </div>
+    <div class="container body-content">
+        <br />
+        <div class="jumbotron" style="text-align:center;padding:10px">
+            <h2>FACEBOOK AND TWITTER</h2>
+        </div>
+        @RenderBody()
+        <hr />
+  
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
